@@ -1,0 +1,24 @@
+{
+  "user_topic": "채무 정리하는 방법",
+  "primary_field": "개인 금융·채무 관리",
+  "related_fields": [
+    "가계 재무 관리",
+    "신용 관리",
+    "채무 조정 제도",
+    "개인회생·파산 관련 법률 정보"
+  ],
+  "audience": "채무 현황을 파악하고 정리 방법과 관련 제도의 기본 정보를 알아보려는 일반 독자",
+  "search_intent": "정보 탐색형: 채무 정리의 의미, 준비 사항, 가능한 방법과 관련 정보를 이해하려는 목적",
+  "search_queries": [
+    "채무 정리하는 방법",
+    "채무 정리",
+    "채무 관리 방법",
+    "채무 조정 제도"
+  ],
+  "rationale": "주제가 채무를 파악하고 관리하는 방법을 중심으로 하므로 개인 금융·채무 관리를 주 분야로 분류했다. 관련 제도는 후속 조사 범위이며 실제 법률·재무 조건은 아직 확인하지 않았다. 첫 검색어는 사용자 원문을 그대로 사용한다.",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "invocation_id": "/root/topic_classification",
+  "invocation_id_kind": "orchestration_task_id_not_api_response_id",
+  "naver_search_performed": false
+}
