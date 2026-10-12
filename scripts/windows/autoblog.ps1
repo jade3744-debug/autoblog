@@ -38,8 +38,14 @@ try {
             $launcher = $null
             foreach ($candidate in @('py','python')) {
                 if (Get-Command $candidate -ErrorAction SilentlyContinue) {
-                    & $candidate -c "import sys; sys.exit(0 if sys.version_info >= (3,12) else 1)" 2>$null
-                    if ($LASTEXITCODE -eq 0) { $launcher = $candidate; break }
+                    try {
+                        & $candidate -c "import sys; sys.exit(0 if sys.version_info >= (3,12) else 1)" 2>$null
+                        if ($LASTEXITCODE -eq 0) { $launcher = $candidate; break }
+                    } catch {
+                        # Windows Store aliases or broken launchers may emit stderr.
+                        # Try the next candidate before showing installation guidance.
+                        continue
+                    }
                 }
             }
             if (-not $launcher) { throw 'Install Python 3.12 or newer from python.org with PATH enabled, then retry.' }
