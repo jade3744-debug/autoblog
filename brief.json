@@ -1,0 +1,27 @@
+{
+  "topic": null,
+  "industry": null,
+  "audience": null,
+  "goal": "정보 전달 및 광고 효과",
+  "blog_url": "https://blog.naver.com/jade3744",
+  "search_scope": "naver_blog_tab_organic_top5",
+  "timezone": "Asia/Seoul",
+  "body_chars": {
+    "min": 1800,
+    "max": 2200,
+    "include_spaces": true
+  },
+  "image_engine": null,
+  "image_engine_accepted_by_user": false,
+  "max_revision_rounds": 2,
+  "topic_source": "user_per_job",
+  "missing_topic_action": "WAIT_TOPIC",
+  "industry_selection": "infer_from_user_topic",
+  "closing_policy": {
+    "mode": "natural_related_information",
+    "direct_consultation_cta": false,
+    "allow_verified_related_links": true,
+    "invent_links": false,
+    "disclosures": "retain_required_advertising_or_affiliate_disclosures"
+  }
+}
