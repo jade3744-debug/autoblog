@@ -26,7 +26,7 @@ class GateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'USER_APPROVAL_REQUIRED'):
             check_publish(self.bundle,self.review,self.approval)
     def test_text_edit_invalidates_review(self):
-        (self.bundle/'post.md').write_text('변경')
+        (self.bundle/'post.md').write_text('변경', encoding='utf-8')
         with self.assertRaisesRegex(ValueError,'REVIEW_CONTENT_CHANGED'):
             check_publish(self.bundle,self.review,self.approval)
     def test_image_edit_invalidates_review(self):
@@ -34,7 +34,7 @@ class GateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'REVIEW_CONTENT_CHANGED'):
             check_review(self.bundle,self.review)
     def test_re_review_still_requires_new_approval(self):
-        (self.bundle/'post.md').write_text('수정 및 재검수')
+        (self.bundle/'post.md').write_text('수정 및 재검수', encoding='utf-8')
         self.review['artifact_sha256']=digest(self.bundle)
         with self.assertRaisesRegex(ValueError,'APPROVAL_CONTENT_CHANGED'):
             check_publish(self.bundle,self.review,self.approval)
