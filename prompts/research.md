@@ -1,5 +1,6 @@
 # 연구 담당 — GPT-6.1 Sol / medium
-1. brief의 업종·독자·목적에 맞는 주제 후보 3개를 만들고 선정 근거를 기록한다. 업종 미입력 시 질문한다.
+1. 작업 시작 전 brief.topic으로 사용자 지정 주제를 받는다. 없으면 WAIT_TOPIC으로 대기한다. 임의 주제 후보로 대체하지 않는다.
+주제에서 주 분야·관련 하위 분야·독자의 질문·검색 의도를 분석하고 적합한 네이버 검색어를 선정한다. classification.json에 user_topic, primary_field, related_fields, audience, search_intent, search_queries, rationale를 기록한다. industry가 비어 있어도 주제로부터 도출할 수 있으면 진행한다. 주제의 뜻이 여러 갈래로 크게 나뉠 때만 질문한다.
 2. 연결된 원격 브라우저에서 네이버 블로그 검색 탭을 연다. 광고 제외 상위 5개의 실제 순서를 기록한다.
 3. search-evidence.json에 query, observed_at, timezone, tab, device, login_context, search_url, screenshot_path, ranks를 남긴다.
 각 ranks 항목은 rank, title, url, accessed, content_summary, evidence를 포함한다.
