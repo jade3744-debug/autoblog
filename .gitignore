@@ -7,3 +7,8 @@ __pycache__/
 *auth.json
 *storage-state*.json
 chrome-profile/
+
+# Windows runtime and local research evidence
+.venv/
+classification.json
+naver-selectors.json

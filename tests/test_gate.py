@@ -56,7 +56,10 @@ class GateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'REVIEW_CONTENT_CHANGED'):
             check_review(self.bundle,self.review)
     def test_symlink_rejected(self):
-        (self.bundle/'alias').symlink_to(self.bundle/'post.md')
+        try:
+            (self.bundle/'alias').symlink_to(self.bundle/'post.md')
+        except OSError as exc:
+            self.skipTest('Symlink creation is unavailable in this environment: ' + type(exc).__name__)
         with self.assertRaisesRegex(ValueError,'SYMLINK_NOT_ALLOWED'): digest(self.bundle)
     def test_invalid_time(self):
         self.approval['approved_at']='2099-01-01T00:00:00+00:00'

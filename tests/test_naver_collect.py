@@ -72,14 +72,18 @@ class ValidationTests(unittest.TestCase):
             self.assertTrue(collector.read_json(Path(tmp)/'output'/'search-evidence.json')['status'].startswith('BLOCKED_REMOTE_BROWSER'))
 
 
-@unittest.skipUnless(importlib.util.find_spec('playwright') and Path('/usr/bin/chromium').exists(),
-                     'Optional local browser fixture requires playwright and /usr/bin/chromium')
+@unittest.skipUnless(importlib.util.find_spec('playwright'),
+                     'Optional local browser fixture requires playwright')
 class LocalBrowserFixtures(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         from playwright.sync_api import sync_playwright
         cls.playwright = sync_playwright().start()
-        cls.browser = cls.playwright.chromium.launch(executable_path='/usr/bin/chromium', headless=True)
+        cls.executable = cls.playwright.chromium.executable_path
+        if not Path(cls.executable).exists():
+            cls.playwright.stop()
+            raise unittest.SkipTest('Install test Chromium with python -m playwright install chromium')
+        cls.browser = cls.playwright.chromium.launch(executable_path=cls.executable, headless=True)
 
     @classmethod
     def tearDownClass(cls):
@@ -99,7 +103,7 @@ class LocalBrowserFixtures(unittest.TestCase):
     def test_local_cdp_attach_reuses_context_and_preserves_owner_page(self):
         # A separate temporary LOCAL Chromium CDP fixture, not a remote Naver session.
         with tempfile.TemporaryDirectory() as profile, tempfile.TemporaryDirectory() as output:
-            owner_context = self.playwright.chromium.launch_persistent_context(profile, executable_path='/usr/bin/chromium', headless=True, args=['--remote-debugging-port=0'])
+            owner_context = self.playwright.chromium.launch_persistent_context(profile, executable_path=self.executable, headless=True, args=['--remote-debugging-port=0'])
             try:
                 active = Path(profile)/'DevToolsActivePort'
                 deadline = time.monotonic() + 10

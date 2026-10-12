@@ -269,7 +269,7 @@ def run(args):
             browser = playwright.chromium.connect_over_cdp(endpoint, timeout=15000)
             if len(browser.contexts) != 1:
                 raise Blocked('BLOCKED_REMOTE_BROWSER: expected one existing persistent context')
-            report.update({'cdp_connected': True, 'connection_kind': 'remote_cdp',
+            report.update({'cdp_connected': True, 'connection_kind': 'local_cdp' if urlsplit(endpoint).hostname in ('127.0.0.1', 'localhost', '::1') else 'remote_cdp',
                            'persistent_context': 'operator_attested', 'profile_context': profile_context, 'login_context': login_context,
                            'login_context_source': 'operator_attested_not_authenticated_by_collector',
                            'classification_model_metadata': {k: classification[k] for k in ('model', 'reasoning', 'invocation_id')},

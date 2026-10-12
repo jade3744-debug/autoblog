@@ -96,3 +96,6 @@ python scripts/naver_collect.py --brief brief.json --classification classificati
 - 결과가 5개 미만이거나 광고/DOM/탭이 불명확하면 이미 확인한 순서와 실패 화면을 유지하되 완료로 처리하지 않는다.
 
 로컬 fixture 테스트는 광고 제외 DOM 순서, 분류/주제/모델 계약, 대기 상태, iframe 본문과 지연 로딩, 차단 즉시 중단, 일반 본문 실패 후 계속 수집, 부분 증거, 임시 **로컬 CDP** 연결과 기존 페이지 보존을 검증한다. fixture의 네이버 형태 URL은 Playwright route로 로컬 HTML을 반환하며 실제 네이버 검색을 하지 않는다. 원격 제공자 연결·실제 네이버 선택자·계정 조건은 아직 실증하지 않았다.
+
+## Windows PC 모드
+현재 사용자는 PC 실행을 선택했다. docs/windows-pc.md를 우선 따른다. 같은 PC의 전용 지속 Chrome에 localhost CDP로 연결한다. 프로필 지속성·로그인 신원은 여전히 사용자 확인이며 연결 성공만으로 인증하지 않는다.

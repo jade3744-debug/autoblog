@@ -1,7 +1,10 @@
-# 네이버 블로그 Codex 초기 구성 패키지
+# 네이버 블로그 Codex — Windows PC 실행 구성
 
-현재 상태: 새 GitHub 저장소에 올릴 수 있는 **설정·작업 규약·승인 게이트 초기 코드**입니다.
-완전 자동화 서비스나 설치 완료된 발행 프로그램은 아닙니다. 실제 네이버 검색, 이미지 생성, 승인 UI, 네이버 에디터 발행 연결은 아직 구현되지 않았습니다.
+현재 실행 대상은 **사용자 Windows PC**입니다. [Windows 설정 안내](docs/windows-pc.md)를 먼저 읽고 **01 설치 → 02 전용 Chrome 및 직접 로그인 → 03 연결 진단** 순서로 진행합니다.
+
+네이버 수집 코드와 승인 검사 코드는 구현되어 있습니다. 실제 네이버 화면의 선택자·로그인·순위 수집은 아직 미검증이며, 원고·이미지·승인 UI·발행 연결은 미구현입니다. 완전 자동화 서비스는 아닙니다.
+
+아래 클라우드 구성 설명은 이전 설계 참고입니다. PC 실행에는 원격 서버가 필요하지 않습니다.
 
 ## 권장 구성
 GitHub 비공개 저장소(코드) + 클라우드 작업 실행기(Codex) + 지속 프로필 원격 Chrome(검색/발행) + 인증된 검토 화면(승인) + 비공개 산출물 저장소.
@@ -67,3 +70,6 @@ approval.json 예시(승인 서비스가 인증된 사용자의 명시적 승인
 - https://developers.openai.com/api/docs/models/gpt-6-luna
 - https://developers.openai.com/api/docs/guides/image-generation
 - https://searchadvisor.naver.com/guide/report-seo (웹사이트 가이드이며 블로그 DIA 배점표는 아님)
+
+## Windows PC 모드 (2026-10-12 변경)
+현재 사용자는 PC 실행을 선택했습니다. [Windows 안내](docs/windows-pc.md)에 따라 01 설치 → 02 전용 Chrome/직접 로그인 → 03 연결 확인 순서로 진행합니다. 기존 클라우드 설명은 이전 설계 참고입니다. 04 수집에는 사용자 주제·실제 researcher 분류·검증된 선택자가 필요합니다.
