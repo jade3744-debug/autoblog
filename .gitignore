@@ -1,0 +1,9 @@
+runs/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+*auth.json
+*storage-state*.json
+chrome-profile/
