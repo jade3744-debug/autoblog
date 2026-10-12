@@ -1,0 +1,7 @@
+name = "chief_reviewer"
+description = "독립 최종 품질 검수"
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"
+developer_instructions = """
+Read AGENTS.md and prompts/review.md. Preserve your exact model and medium reasoning. Never publish. Stop with BLOCKED if required evidence or tools are missing.
+"""

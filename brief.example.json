@@ -1,0 +1,17 @@
+{
+  "topic": null,
+  "industry": null,
+  "audience": null,
+  "goal": null,
+  "blog_url": null,
+  "search_scope": "naver_blog_tab_organic_top5",
+  "timezone": "Asia/Seoul",
+  "body_chars": {
+    "min": 1800,
+    "max": 2200,
+    "include_spaces": true
+  },
+  "image_engine": null,
+  "image_engine_accepted_by_user": false,
+  "max_revision_rounds": 2
+}

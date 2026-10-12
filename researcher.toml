@@ -1,0 +1,7 @@
+name = "researcher"
+description = "네이버 검색 및 분석"
+model = "gpt-6.1-sol"
+model_reasoning_effort = "medium"
+developer_instructions = """
+Read AGENTS.md and prompts/research.md. Preserve your exact model and medium reasoning. Never publish. Stop with BLOCKED if required evidence or tools are missing.
+"""
